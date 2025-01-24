@@ -58,113 +58,7 @@ Map<String, NkCurve> getAllocationCurves(Sql sql, String projectCode, String res
     return allocationCurves
 }
 
-// Function to clone and optimize the segments
-def cloneOptimizedSegments(byte[] bytes) {
-    NkCurve clonedCurve = new NkCurve(1)
 
-    if (bytes) {
-        def curve = new NkCurve(bytes)
-        curve.segments.each { NkSegment segment ->
-            def start = DateUtil.ensureMidnightStart(segment.startDate)
-            def finish = DateUtil.ensureMidnightFinish(segment.finishDate)
-            def startDate = start.toLocalDate()
-            def endDate = finish.toLocalDate()
-            def firstOfMonth = startDate.withDayOfMonth(1)
-            def lastOfMonth = startDate.withDayOfMonth(startDate.lengthOfMonth()).plusDays(1)
-
-            while (firstOfMonth.isBefore(endDate)) {
-                def startSegment = NkTime.toNkTime((firstOfMonth.isBefore(startDate) ? startDate : firstOfMonth).toDate())
-                def finishSegment = NkTime.toNkTime((endDate.isBefore(lastOfMonth) ? endDate : lastOfMonth).toDate())
-                def rate = segment.rate
-                if (rate > 0.0D) {
-                    clonedCurve.segments.setSegment(startSegment, finishSegment, rate, null)
-                }
-                firstOfMonth = firstOfMonth.plus(1, ChronoUnit.MONTHS)
-                lastOfMonth = firstOfMonth.withDayOfMonth(firstOfMonth.lengthOfMonth()).plusDays(1)
-            }
-        }
-    }
-
-    return clonedCurve
-}
-
-// Function to filter segments by periods
-NkCurve getFilterSegments(NkCurve curve, Date start, Integer periods, String periodType) {
-    println "Filtering curve for periods starting from $start with $periods $periodType periods."
-
-    if (!curve) {
-        println "Error: curve is null, cannot filter."
-        return null
-    }
-
-    NkCurve filteredCurve = new NkCurve(1) // Create a new curve to store filtered segments
-    //List<List<String>> csvData = [] // List to store the CSV rows
-
-    // Add the CSV headers
-    //csvData << ["Project","Resource", "Period Start", "Period End", "Segment Start", "Segment End", "Rate"]
-
-    use(TimeCategory) {
-        for (int i = 0; i < periods; i++) {
-            def periodStartDate
-            def periodEndDate
-
-            // Calculate period start and end date based on period type
-            switch (periodType) {
-                case "MONTHLY":
-                    periodStartDate = start + i.month
-                    periodEndDate = start + (i + 1).month
-                    break
-                case "QUARTERLY":
-                    periodStartDate = start + (i * 3).months
-                    periodEndDate = start + ((i + 1) * 3).months
-                    break
-                case "YEARLY":
-                    periodStartDate = start + (i * 12).months
-                    periodEndDate = start + ((i + 1) * 12).months
-                    break
-                default:
-                    throw new Exception("Invalid period type: $periodType")
-            }
-            def periodSumm = curve.getSum(periodStartDate, periodEndDate)
-            println "Period Sum for before${periodStartDate} to ${periodEndDate}: $periodSumm"
-            def nkPeriodStartDate = NkTime.toNkTime(periodStartDate)
-            def nkPeriodEndDate = NkTime.toNkTime(periodEndDate)
-            //println "Processing $periodType period: ${i + 1}, Start: $periodStartDate, End: $periodEndDate"
-            //def periodSum = curve.getSum(nkPeriodStartDate, nkPeriodEndDate)
-
-            // println "Period Sum for ${periodStartDate} to ${periodEndDate}: $periodSum"
-
-//            def row = [
-//                    "Project",
-//                    "sourceTeamData.PRRESOURCEID",
-//                    periodStartDate,
-//                    periodEndDate,
-//                    "segment.rate",
-//                    convertToPersonDays(curve.segments.getSum(nkPeriodStartDate, nkPeriodEndDate))
-//            ]
-            //csvData << row
-
-            // Filter out the segments that fall within this period
-            //curve.segments.each {NkSegment s -> println(s)}
-            curve.segments.each { NkSegment segment ->
-                if (segment.startDate >= periodStartDate && segment.finishDate <= periodEndDate) {
-                    filteredCurve.segments.setSegment(segment)
-                }
-
-            }
-            // If no segments were added for this period, create a default segment with 0 value
-            println " the size of the filter curve is ${filteredCurve.segments.size()}"
-            if (filteredCurve.segments.size() == 0) {
-                filteredCurve.segments.setSegment(NkTime.toNkTime(periodStartDate), NkTime.toNkTime(periodEndDate), 0.0D, null)
-//                def periodSum = curve.segments.addSegment(nkPeriodStartDate, nkPeriodEndDate, 1, null)
-                println "No segments found for this period. Added default segment with 0 allocation."
-            }
-        }
-    }
-
-    // println "Filtered Curve: $filteredCurve"
-    return filteredCurve
-}
 int calculateWorkdaysBetween(Date startDate, Date endDate) {
     LocalDate start = startDate.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate()
     LocalDate end = endDate.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate()
@@ -242,6 +136,7 @@ void printCurveDetails(NkCurve curve) {
         println "The NkCurve is empty or null."
     }
 }
+
 Integer getNumberOfPeriods(Date startDate, Date endDate, String period) {
     println "Calculating periods between $startDate and $endDate for period type: $period"
 
@@ -278,6 +173,7 @@ Integer getNumberOfPeriods(Date startDate, Date endDate, String period) {
     println "Total periods: $periods"
     return periods
 }
+
 void exportToCSV(List<Map<String, Object>> data, String filename) {
     File file = new File(filename)
     BufferedWriter writer = new BufferedWriter(new FileWriter(file))
