@@ -1,3 +1,4 @@
+
 import org.aspectj.lang.annotation.Before
 import org.example.ResourceAllocation
 import org.junit.jupiter.api.Test
@@ -6,7 +7,7 @@ import java.text.SimpleDateFormat
 
 import static org.junit.jupiter.api.Assertions.*
 
-class ExportAllocationsTest {
+class ResourceAllocationTest {
 
     def resourceAllocation = new ResourceAllocation()  // Assuming getNumberOfPeriods() is in this class
 
