@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NikuDataBus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/nikuxog_contentPack.xsd">
+  <Header action="write" externalSource="NIKU" objectType="contentPack" version="16.2.3.1153"/>
+  <contentPack update="true">
+    <jobDefinitions update="true">
+      <jobDefinition active="1" cancellable="false" executable="de.itdesign.clarity.scripting.ItdScriptJob" isHidden="false"
+        jobDefinitionCode="z_alloc" jobType="JAVA" logEnabled="1" outputEnabled="1" runConcurrent="true" source="customer">
+        <nls description="Extracting Allocations" languageCode="ca" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="cs" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="da" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="de" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="en" name="Extracting Allocation"/>
+        <nls description="Extracting Allocations" languageCode="es" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="fi" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="fr" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="hu" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="it" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="ja" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="ko" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="nl" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="no" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="pl" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="pt" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="ru" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="sv" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="tr" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="zh" name="Allocation"/>
+        <nls description="Extracting Allocations" languageCode="zh_TW" name="Allocation"/>
+        <parameter code="scriptcode" dataType="string" defaultValue="ResourceAllocation.groovy" order="1" readOnly="true" required="true" widgetType="text">
+          <nls languageCode="ca" name="[hidden]: Script Code"/>
+          <nls languageCode="cs" name="[hidden]: Script Code"/>
+          <nls languageCode="da" name="[hidden]: Script Code"/>
+          <nls languageCode="de" name="[hidden]: Script Code"/>
+          <nls languageCode="en" name="[hidden]: Script Code"/>
+          <nls languageCode="es" name="[hidden]: Script Code"/>
+          <nls languageCode="fi" name="[hidden]: Script Code"/>
+          <nls languageCode="fr" name="[hidden]: Script Code"/>
+          <nls languageCode="hu" name="[hidden]: Script Code"/>
+          <nls languageCode="it" name="[hidden]: Script Code"/>
+          <nls languageCode="ja" name="[hidden]: Script Code"/>
+          <nls languageCode="ko" name="[hidden]: Script Code"/>
+          <nls languageCode="nl" name="[hidden]: Script Code"/>
+          <nls languageCode="no" name="[hidden]: Script Code"/>
+          <nls languageCode="pl" name="[hidden]: Script Code"/>
+          <nls languageCode="pt" name="[hidden]: Script Code"/>
+          <nls languageCode="ru" name="[hidden]: Script Code"/>
+          <nls languageCode="sv" name="[hidden]: Script Code"/>
+          <nls languageCode="tr" name="[hidden]: Script Code"/>
+          <nls languageCode="zh" name="[hidden]: Script Code"/>
+          <nls languageCode="zh_TW" name="[hidden]: Script Code"/>
+        </parameter>
+        <parameter code="source" dataType="string" defaultValue="*auto*" order="2" readOnly="true" required="true" widgetType="text">
+          <nls languageCode="ca" name="[hidden]: Script Source"/>
+          <nls languageCode="cs" name="[hidden]: Script Source"/>
+          <nls languageCode="da" name="[hidden]: Script Source"/>
+          <nls languageCode="de" name="[hidden]: Script Source"/>
+          <nls languageCode="en" name="[hidden]: Script Source"/>
+          <nls languageCode="es" name="[hidden]: Script Source"/>
+          <nls languageCode="fi" name="[hidden]: Script Source"/>
+          <nls languageCode="fr" name="[hidden]: Script Source"/>
+          <nls languageCode="hu" name="[hidden]: Script Source"/>
+          <nls languageCode="it" name="[hidden]: Script Source"/>
+          <nls languageCode="ja" name="[hidden]: Script Source"/>
+          <nls languageCode="ko" name="[hidden]: Script Source"/>
+          <nls languageCode="nl" name="[hidden]: Script Source"/>
+          <nls languageCode="no" name="[hidden]: Script Source"/>
+          <nls languageCode="pl" name="[hidden]: Script Source"/>
+          <nls languageCode="pt" name="[hidden]: Script Source"/>
+          <nls languageCode="ru" name="[hidden]: Script Source"/>
+          <nls languageCode="sv" name="[hidden]: Script Source"/>
+          <nls languageCode="tr" name="[hidden]: Script Source"/>
+          <nls languageCode="zh" name="[hidden]: Script Source"/>
+          <nls languageCode="zh_TW" name="[hidden]: Script Source"/>
+        </parameter>
+        <parameter code="scriptLang" dataType="string" defaultValue="groovy" order="3" readOnly="true" required="true" widgetType="text">
+          <nls languageCode="ca" name="[hidden]: Language"/>
+          <nls languageCode="cs" name="[hidden]: Language"/>
+          <nls languageCode="da" name="[hidden]: Language"/>
+          <nls languageCode="de" name="[hidden]: Language"/>
+          <nls languageCode="en" name="[hidden]: Language"/>
+          <nls languageCode="es" name="[hidden]: Language"/>
+          <nls languageCode="fi" name="[hidden]: Language"/>
+          <nls languageCode="fr" name="[hidden]: Language"/>
+          <nls languageCode="hu" name="[hidden]: Language"/>
+          <nls languageCode="it" name="[hidden]: Language"/>
+          <nls languageCode="ja" name="[hidden]: Language"/>
+          <nls languageCode="ko" name="[hidden]: Language"/>
+          <nls languageCode="nl" name="[hidden]: Language"/>
+          <nls languageCode="no" name="[hidden]: Language"/>
+          <nls languageCode="pl" name="[hidden]: Language"/>
+          <nls languageCode="pt" name="[hidden]: Language"/>
+          <nls languageCode="ru" name="[hidden]: Language"/>
+          <nls languageCode="sv" name="[hidden]: Language"/>
+          <nls languageCode="tr" name="[hidden]: Language"/>
+          <nls languageCode="zh" name="[hidden]: Language"/>
+          <nls languageCode="zh_TW" name="[hidden]: Language"/>
+        </parameter>
+        <parameter code="z_res" dataType="string" lookupCardinality="1" lookupCode="LOOKUP_SEC_RESMGR" order="4" readOnly="false" required="true" widgetType="browse">
+          <nls languageCode="ca" name="Resource"/>
+          <nls languageCode="cs" name="Resource"/>
+          <nls languageCode="da" name="Resource"/>
+          <nls languageCode="de" name="Resource"/>
+          <nls languageCode="en" name="Resource"/>
+          <nls languageCode="es" name="Resource"/>
+          <nls languageCode="fi" name="Resource"/>
+          <nls languageCode="fr" name="Resource"/>
+          <nls languageCode="hu" name="Resource"/>
+          <nls languageCode="it" name="Resource"/>
+          <nls languageCode="ja" name="Resource"/>
+          <nls languageCode="ko" name="Resource"/>
+          <nls languageCode="nl" name="Resource"/>
+          <nls languageCode="no" name="Resource"/>
+          <nls languageCode="pl" name="Resource"/>
+          <nls languageCode="pt" name="Resource"/>
+          <nls languageCode="ru" name="Resource"/>
+          <nls languageCode="sv" name="Resource"/>
+          <nls languageCode="tr" name="Resource"/>
+          <nls languageCode="zh" name="Resource"/>
+          <nls languageCode="zh_TW" name="Resource"/>
+        </parameter>
+        <parameter code="z_prj" dataType="string" lookupCardinality="1" lookupCode="SCH_BROWSE_PROJECT" order="5" readOnly="false" required="true" widgetType="browse">
+          <nls languageCode="ca" name="Project"/>
+          <nls languageCode="cs" name="Project"/>
+          <nls languageCode="da" name="Project"/>
+          <nls languageCode="de" name="Project"/>
+          <nls description="Project" languageCode="en" name="Project"/>
+          <nls languageCode="es" name="Project"/>
+          <nls languageCode="fi" name="Project"/>
+          <nls languageCode="fr" name="Project"/>
+          <nls languageCode="hu" name="Project"/>
+          <nls languageCode="it" name="Project"/>
+          <nls languageCode="ja" name="Project"/>
+          <nls languageCode="ko" name="Project"/>
+          <nls languageCode="nl" name="Project"/>
+          <nls languageCode="no" name="Project"/>
+          <nls languageCode="pl" name="Project"/>
+          <nls languageCode="pt" name="Project"/>
+          <nls languageCode="ru" name="Project"/>
+          <nls languageCode="sv" name="Project"/>
+          <nls languageCode="tr" name="Project"/>
+          <nls languageCode="zh" name="Project"/>
+          <nls languageCode="zh_TW" name="Project"/>
+        </parameter>
+        <parameter code="z_Strdate" dataType="string" defaultValue="2/28/2025" order="6" readOnly="false" required="true" widgetType="relativedate">
+          <nls languageCode="ca" name="Start Date"/>
+          <nls languageCode="cs" name="Start Date"/>
+          <nls languageCode="da" name="Start Date"/>
+          <nls languageCode="de" name="Start Date"/>
+          <nls languageCode="en" name="Start Date"/>
+          <nls languageCode="es" name="Start Date"/>
+          <nls languageCode="fi" name="Start Date"/>
+          <nls languageCode="fr" name="Start Date"/>
+          <nls languageCode="hu" name="Start Date"/>
+          <nls languageCode="it" name="Start Date"/>
+          <nls languageCode="ja" name="Start Date"/>
+          <nls languageCode="ko" name="Start Date"/>
+          <nls languageCode="nl" name="Start Date"/>
+          <nls languageCode="no" name="Start Date"/>
+          <nls languageCode="pl" name="Start Date"/>
+          <nls languageCode="pt" name="Start Date"/>
+          <nls languageCode="ru" name="Start Date"/>
+          <nls languageCode="sv" name="Start Date"/>
+          <nls languageCode="tr" name="Start Date"/>
+          <nls languageCode="zh" name="Start Date"/>
+          <nls languageCode="zh_TW" name="Start Date"/>
+        </parameter>
+        <parameter code="z_endDate" dataType="string" defaultValue="3/31/2025" order="7" readOnly="false" required="true" widgetType="relativedate">
+          <nls languageCode="ca" name="End Date"/>
+          <nls languageCode="cs" name="End Date"/>
+          <nls languageCode="da" name="End Date"/>
+          <nls languageCode="de" name="End Date"/>
+          <nls languageCode="en" name="End Date"/>
+          <nls languageCode="es" name="End Date"/>
+          <nls languageCode="fi" name="End Date"/>
+          <nls languageCode="fr" name="End Date"/>
+          <nls languageCode="hu" name="End Date"/>
+          <nls languageCode="it" name="End Date"/>
+          <nls languageCode="ja" name="End Date"/>
+          <nls languageCode="ko" name="End Date"/>
+          <nls languageCode="nl" name="End Date"/>
+          <nls languageCode="no" name="End Date"/>
+          <nls languageCode="pl" name="End Date"/>
+          <nls languageCode="pt" name="End Date"/>
+          <nls languageCode="ru" name="End Date"/>
+          <nls languageCode="sv" name="End Date"/>
+          <nls languageCode="tr" name="End Date"/>
+          <nls languageCode="zh" name="End Date"/>
+          <nls languageCode="zh_TW" name="End Date"/>
+        </parameter>
+        <parameter code="z_period" dataType="string" lookupCardinality="1" lookupCode="SIMPLE_PERIOD_TYPE" order="8" readOnly="false" required="true" widgetType="select">
+          <nls languageCode="ca" name="Period"/>
+          <nls languageCode="cs" name="Period"/>
+          <nls languageCode="da" name="Period"/>
+          <nls languageCode="de" name="Period"/>
+          <nls description="Period" languageCode="en" name="Period"/>
+          <nls languageCode="es" name="Period"/>
+          <nls languageCode="fi" name="Period"/>
+          <nls languageCode="fr" name="Period"/>
+          <nls languageCode="hu" name="Period"/>
+          <nls languageCode="it" name="Period"/>
+          <nls languageCode="ja" name="Period"/>
+          <nls languageCode="ko" name="Period"/>
+          <nls languageCode="nl" name="Period"/>
+          <nls languageCode="no" name="Period"/>
+          <nls languageCode="pl" name="Period"/>
+          <nls languageCode="pt" name="Period"/>
+          <nls languageCode="ru" name="Period"/>
+          <nls languageCode="sv" name="Period"/>
+          <nls languageCode="tr" name="Period"/>
+          <nls languageCode="zh" name="Period"/>
+          <nls languageCode="zh_TW" name="Period"/>
+        </parameter>
+        <OBSAssocs complete="false"/>
+        <Security>
+          <UserSecurity rightCode="ReportDefinitionCreatorAuto" userName="admin"/>
+        </Security>
+      </jobDefinition>
+	 </jobDefinitions>
+	</contentPack>
+  </NikuDataBus>
